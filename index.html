@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f7f5" />
+    <title>BioStat Lab | Enzyme kinetics</title>
+  </head>
+  <body>
+    <div class="loading-screen" id="loading-screen" role="status" aria-live="polite">
+      <div class="loader-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+      <p class="eyebrow">BIOSTAT LAB <span> / </span> RUNTIME</p>
+      <h1>Preparing your analysis</h1>
+      <p class="loading-message" id="loading-message">Starting R in WebAssembly...</p>
+    </div>
+
+    <main class="app-shell" id="app-shell" hidden>
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="BioStat Lab home">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>BioStat <b>Lab</b></span>
+        </a>
+        <div class="runtime-status"><span class="status-dot"></span> R running in browser</div>
+      </header>
+
+      <section class="page-heading" id="top">
+        <div>
+          <p class="eyebrow">KINETICS <span> / </span> MODEL FIT</p>
+          <h1>Enzyme activity</h1>
+          <p class="page-description">Michaelis–Menten fit across inhibitor conditions</p>
+        </div>
+        <div class="dataset-label">
+          <span class="dataset-icon" aria-hidden="true">CSV</span>
+          <span><b>enzyme_kinetics.csv</b><small>16 observations · 2 conditions</small></span>
+        </div>
+      </section>
+
+      <section class="results-grid" aria-label="Model results">
+        <section class="summary-panel" aria-labelledby="summary-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">PARAMETER ESTIMATES</p>
+              <h2 id="summary-title">Model summary</h2>
+            </div>
+            <span class="fit-tag">NONLINEAR LEAST SQUARES</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Condition</th>
+                  <th scope="col"><i>V</i><sub>max</sub> <span>(± SE)</span></th>
+                  <th scope="col"><i>K</i><sub>m</sub> <span>(± SE)</span></th>
+                </tr>
+              </thead>
+              <tbody id="summary-body"></tbody>
+            </table>
+          </div>
+          <p class="table-note">Velocity in µM/min · substrate in mM</p>
+        </section>
+
+        <section class="plot-panel" aria-labelledby="plot-title">
+          <div class="section-heading plot-heading">
+            <div>
+              <p class="eyebrow">OBSERVED + FITTED</p>
+              <h2 id="plot-title">Reaction velocity</h2>
+            </div>
+            <span class="plot-menu-label">INTERACTIVE PLOT</span>
+          </div>
+          <div id="kinetics-plot" role="img" aria-label="Observed reaction velocities and fitted Michaelis-Menten curves"></div>
+        </section>
+      </section>
+
+      <section class="code-section" aria-labelledby="code-title">
+        <div class="code-heading">
+          <div>
+            <p class="eyebrow">REPRODUCIBILITY</p>
+            <h2 id="code-title">Executed R code</h2>
+          </div>
+          <span class="code-language">R</span>
+        </div>
+        <pre><code id="r-code"></code></pre>
+      </section>
+
+      <footer class="page-footer">
+        <span>All computation runs locally in your browser.</span>
+        <span>BioStat Lab <b>·</b> Enzyme kinetics</span>
+      </footer>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
